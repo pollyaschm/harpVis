@@ -29,8 +29,8 @@ plot_spatial_fss <- function(
 
   if (colour_by == "fss" || colour_by == "auto" || is.na(colour_by)) {
     colour_by   <- "fss"
-    x_data      <- "threshold"
-    y_data      <- "scale"
+    x_data      <- "scale"
+    y_data      <- "threshold"
     plot_type   <- "area"
   } else if (colour_by == "threshold") {
     x_data      <- "scale"
@@ -43,8 +43,8 @@ plot_spatial_fss <- function(
   } else {
     message(paste("colour_by should either be 'scale' or 'threshold'"))
     colour_by   <- "fss"
-    x_data      <- "threshold"
-    y_data      <- "scale"
+    x_data      <- "scale"
+    y_data      <- "threshold"
     plot_type   <- "area"
   }
 
