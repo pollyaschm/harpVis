@@ -85,8 +85,8 @@ plot_spatial_fss <- function(
                       " compared to ",ref_model)
     } else {
       score <- "fss"
-      c_low <- "red"
-      c_mid <- "yellow"
+      c_low <- "lightgrey"
+      c_mid <- "white"
       c_hig <- "darkgreen"
       c_lim <- c(0,1)
       mid   <- 0.5
