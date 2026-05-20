@@ -51,7 +51,10 @@ plot_spatial_fss <- function(
   ### calculate mean of every threshold/scale pair
   plot_data <- plot_data %>%
                dplyr::group_by(model, prm, threshold, scale) %>%
-               dplyr::summarize_at("fss", mean, na.rm = TRUE)
+               dplyr::summarize(
+				"fss" = if (all(is.na(fss))) NA else mean(fss, na.rm = TRUE),
+				.groups = "drop"
+	       )
   
   pt <- paste0(unique(plot_data$model),collapse=",")
   if (plot_type == "area") {
@@ -106,6 +109,7 @@ plot_spatial_fss <- function(
                                             high     = c_hig,
                                             limits   = c_lim,
                                             midpoint = mid,
+					    na.value = "grey70",
                                             oob      = scales::squish,
                                             name     = score_name)
         if (length(unique(plot_data$model)) > 1) {
